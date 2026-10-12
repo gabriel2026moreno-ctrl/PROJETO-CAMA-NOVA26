@@ -275,7 +275,7 @@
         document.querySelector('.payment-section').scrollIntoView({ behavior: 'smooth' });
     }
 
-    // Ação ao selecionar um número na cartela
+    //     // Ação ao selecionar um número na cartela
     function alternarNumero(num, btnElement) {
         if(comboSelecionado) {
             comboSelecionado = null;
@@ -291,13 +291,9 @@
         }
 
         if(numerosSelecionados.length > 0) {
-            mostrarPix(PIX_NUMEROS); // Mostra a chave dos Números
-            
-            // Desliza a tela automaticamente para a área de pagamento
-            document.querySelector('.payment-section').scrollIntoView({ behavior: 'smooth' });
+            mostrarPix(PIX_NUMEROS); // Mostra a chave dos Números, mas sem puxar a tela para baixo
         } else {
             esconderPix();
-
         }
     }
 
