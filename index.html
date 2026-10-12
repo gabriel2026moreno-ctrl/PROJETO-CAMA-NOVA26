@@ -307,7 +307,7 @@
         });
     }
 
-    // Ação de enviar para o WhatsApp
+        // Ação de enviar para o WhatsApp
     function finalizarCompra() {
         if(!comboSelecionado && numerosSelecionados.length === 0) {
             alert("Por favor, escolha um combo ou selecione seus números na cartela antes de enviar o comprovante.");
@@ -317,10 +317,35 @@
         let mensagem = "";
         
         if(comboSelecionado) {
+            // Lógica para gerar números aleatórios que ainda não foram vendidos
+            let numerosDisponiveis = [];
+            for(let i = 0; i <= 500; i++) {
+                let numStr = i.toString().padStart(3, '0');
+                if(!numerosVendidos.includes(numStr)) {
+                    numerosDisponiveis.push(numStr);
+                }
+            }
+
+            if(numerosDisponiveis.length < comboSelecionado.qtd) {
+                alert("Desculpe, não há números disponíveis suficientes para este combo.");
+                return;
+            }
+
+            let numerosSorteados = [];
+            for(let i = 0; i < comboSelecionado.qtd; i++) {
+                let randomIndex = Math.floor(Math.random() * numerosDisponiveis.length);
+                numerosSorteados.push(numerosDisponiveis[randomIndex]);
+                numerosDisponiveis.splice(randomIndex, 1); // Remove para não sortear o mesmo número duas vezes
+            }
+
+            // Organiza os números do menor para o maior para ficar mais bonito
+            numerosSorteados.sort();
+
             mensagem = `Olá, Gabriel! Gostaria de confirmar a compra de um combo da rifa PROJETO CAMA NOVA.\n\n` +
                        `*Combo escolhido:* ${comboSelecionado.texto}\n` +
+                       `*Números Aleatórios Gerados:* ${numerosSorteados.join(', ')}\n` +
                        `*Chave Pix utilizada:* ${PIX_COMBOS}\n\n` +
-                       `Estou ciente que meus números serão gerados aleatoriamente e que concorro ao Pix de R$ 100! Segue o meu comprovante:`;
+                       `Concorro à bicicleta e ao Pix de R$ 100! Segue o meu comprovante:`;
         } else {
             let total = numerosSelecionados.length * 5;
             mensagem = `Olá, Gabriel! Gostaria de confirmar a compra de números da rifa PROJETO CAMA NOVA.\n\n` +
@@ -332,6 +357,7 @@
 
         const url = `https://wa.me/${MEU_WHATSAPP}?text=${encodeURIComponent(mensagem)}`;
         window.open(url, '_blank');
+    
     }
 </script>
 </body>
