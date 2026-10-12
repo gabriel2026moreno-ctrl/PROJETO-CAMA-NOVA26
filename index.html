@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rifa: PROJETO CAMA NOVA</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h1, h2, h3 {
+            text-align: center;
+            color: #2c3e50;
+        }
+        .hero-img {
+            width: 100%;
+            max-height: 400px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+        .story-section {
+            background: #e8f4f8;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+            line-height: 1.6;
+        }
+        .prizes {
+            background: #ffeaa7;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+            text-align: center;
+        }
+        .combos {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        .combo-btn {
+            background: #00cec9;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+        .combo-btn:hover, .combo-btn.selected {
+            background: #00b894;
+            transform: scale(1.05);
+        }
+        .numbers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(50px, 1fr));
+            gap: 5px;
+            margin: 20px 0;
+            max-height: 400px;
+            overflow-y: auto;
+            padding: 10px;
+            border: 1px solid #ccc;
+        }
+        .num-btn {
+            padding: 10px 5px;
+            text-align: center;
+            background: #ecf0f1;
+            border: 1px solid #bdc3c7;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .num-btn:hover { background: #dfe6e9; }
+        .num-btn.selected { background: #3498db; color: white; }
+        .num-btn.sold { background: #e74c3c; color: white; cursor: not-allowed; text-decoration: line-through; }
+        
+        .payment-section {
+            background: #ecf0f1;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+            text-align: center;
+            border: 2px dashed #bdc3c7;
+        }
+        .copy-btn {
+            background: #f39c12;
+            color: white;
+            font-size: 16px;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            margin-bottom: 15px;
+            width: 100%;
+        }
+        .copy-btn:hover {
+            background: #e67e22;
+        }
+        .checkout-btn {
+            display: block;
+            width: 100%;
+            background: #27ae60;
+            color: white;
+            font-size: 18px;
+            padding: 15px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .checkout-btn:hover { background: #2ecc71; }
+        footer {
+            margin-top: 40px;
+            font-size: 0.9em;
+            color: #7f8c8d;
+            border-top: 1px solid #ccc;
+            padding-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Rifa: PROJETO CAMA NOVA 🏠🚲</h1>
+    
+    <!-- Para colocar a foto real da bicicleta, troque o link dentro do src="" abaixo -->
+    <img src="https://via.placeholder.com/800x400?text=Foto+da+Bicicleta" alt="Bicicleta do Prêmio" class="hero-img">
+
+    <div class="story-section">
+        <h3>Olá, pessoal!</h3>
+        <p>Quem acompanha a minha correria, seja nos cortes do dia a dia ou nas minhas correrias, sabe o quanto eu valorizo o meu trabalho duro. Estou entrando em uma nova fase da minha vida e organizando o meu próprio espaço, para conseguir um descanso adequado. Para comprar meus móveis e eletrodomésticos básicos, resolvi fazer essa rifa.</p>
+        
+        <h3>O Motivo da Rifa: Construindo o Meu Descanso</h3>
+        <p>Estou há mais de 3 anos tentando construir meu conforto. Depois de um dia inteiro em pé na correria da barbearia, cortando cabelo e dando o meu melhor para os clientes, ou em outros bicos, a realidade ao chegar em casa é dura. Há mais de 3 anos venho tentando conquistar o mínimo de conforto e independência.</p>
+        <p>Durante todo esse período, o dinheiro que ganho com os meus trabalhos só está indo para pagar as despesas básicas da casa e alimentação, o que torna quase impossível juntar o valor necessário para comprar uma cama ou os móveis essenciais. Por causa disso, vivo a dificuldade de dormir de rede ou depender de terceiros para conseguir descansar e recuperar as energias.</p>
+        <p>Todo trabalhador merece um lugar próprio e confortável para repousar após uma jornada pesada. É por isso que criei esta rifa da bicicleta: para transformar o suor do meu trabalho em conquista real e, finalmente, montar o meu próprio conforto. Conto com a sua força, seja comprando um número ou compartilhando com quem pode ajudar. Vamos juntos nessa!</p>
+    </div>
+
+    <div class="prizes">
+        <h2>Premiações</h2>
+        <p><strong>1º Prêmio:</strong> Bicicleta Top (Sorteio pela Loteria Federal)</p>
+        <p><strong>2º Prêmio:</strong> R$ 100,00 no Pix (Exclusivo para quem comprar Combos)</p>
+        <p><em>Valor do número avulso: R$ 5,00</em></p>
+    </div>
+
+    <h3>Escolha seus Combos (Concorre a R$ 100 extra)</h3>
+    <div class="combos" id="combos-container">
+        <!-- Combos gerados via JS -->
+    </div>
+
+    <h3>Ou escolha seus números avulsos (000 a 500)</h3>
+    <div class="numbers-grid" id="numbers-grid">
+        <!-- Números gerados via JS -->
+    </div>
+
+    <div class="payment-section">
+        <h3>💳 Faça o Pagamento</h3>
+        
+        <!-- Mensagem antes de escolher -->
+        <p id="aviso-escolha" style="color: #e74c3c; font-weight: bold;">Selecione um número ou um combo para ver a chave Pix de pagamento.</p>
+        
+        <!-- Área do Pix (Fica escondida até a pessoa escolher algo) -->
+        <div id="area-pix" style="display: none;">
+            <p><strong>Chave Pix:</strong> <span id="chave-pix"></span></p>
+            <p><strong>Titular:</strong> Gabriel</p>
+            <button class="copy-btn" onclick="copiarPix()">📋 Copiar Chave Pix (Copia e Cola)</button>
+        </div>
+
+        <p style="font-size: 14px; color: #7f8c8d; margin-top: 15px;">Após realizar o pagamento, clique no botão abaixo para enviar o comprovante no WhatsApp.</p>
+        <button class="checkout-btn" onclick="finalizarCompra()">📲 Enviar Comprovante no WhatsApp</button>
+    </div>
+
+    <footer>
+        <h4>Termos e Condições - Regras da Rifa</h4>
+        <p>A Rifa PROJETO CAMA NOVA é composta por 500 números (de 000 a 500) ao valor de R$ 5,00 cada.</p>
+        <p>O sorteio só será realizado após a venda e baixa de 100% dos números. O resultado oficial será baseado no sorteio da Loteria Federal, garantindo total transparência.</p>
+        <p><strong>Exemplo de sorteio:</strong> Se o 1º prêmio da loteria Federal for o número 12345, o ganhador da bicicleta será o número 345. Se o 2º prêmio for 12346, o ganhador dos R$ 100,00 será o 346.</p>
+        <p>A premiação do ganhador só é considerada válida e realizada após a venda, confirmação no WhatsApp (com envio de comprovante) e a mensagem automática do número escolhido.</p>
+        <p><strong>No dia do sorteio:</strong> Galera, com a cartela 100% fechada! No dia do resultado, avisarei com 1 dia de antecedência. O sorteio será realizado com base na Loteria Federal, boa sorte a todos!</p>
+        <p><strong>Entrega:</strong> Caso o comprador sorteado for de outro estado, ou outra localização sem ser dentro das redondezas onde moro (PARNAMIRIM/RN), o envio da bicicleta dependerá da localização, podendo ser entregue pessoalmente.</p>
+    </footer>
+</div>
+
+<script>
+    // Configurações Pessoais
+    const MEU_WHATSAPP = "5584996742740"; 
+    
+    // Suas chaves Pix separadas:
+    const PIX_NUMEROS = "4f18bafc-72b2-4c37-a5b5-d893573d2177";
+    const PIX_COMBOS = "0578187f-b286-40b9-8bc3-96eeee459a1d";
+    
+    // COMO BLOQUEAR NÚMEROS VENDIDOS:
+    // Adicione os números já pagos dentro dos colchetes abaixo, separados por vírgula e com aspas. 
+    // Exemplo: const numerosVendidos = ["005", "012", "499"];
+    const numerosVendidos = []; 
+
+    let numerosSelecionados = [];
+    let comboSelecionado = null;
+
+    const combos = [
+        { id: 1, qtd: 2, valor: 7.50, texto: "2 números - R$ 7,50" },
+        { id: 2, qtd: 3, valor: 12.00, texto: "3 números - R$ 12,00" },
+        { id: 3, qtd: 4, valor: 16.00, texto: "4 números - R$ 16,00" },
+        { id: 4, qtd: 5, valor: 20.00, texto: "5 números - R$ 20,00" },
+        { id: 5, qtd: 6, valor: 24.00, texto: "6 números - R$ 24,00" },
+        { id: 6, qtd: 7, valor: 28.00, texto: "7 números - R$ 28,00" },
+        { id: 7, qtd: 8, valor: 32.00, texto: "8 números - R$ 32,00" },
+        { id: 8, qtd: 9, valor: 36.00, texto: "9 números - R$ 36,00" },
+        { id: 9, qtd: 10, valor: 40.00, texto: "10 números - R$ 40,00" }
+    ];
+
+    // Gerar Combos na Tela
+    const comboContainer = document.getElementById('combos-container');
+    combos.forEach(c => {
+        const btn = document.createElement('button');
+        btn.className = 'combo-btn';
+        btn.innerText = c.texto;
+        btn.onclick = () => selecionarCombo(c, btn);
+        comboContainer.appendChild(btn);
+    });
+
+    // Gerar Números na Tela (000 a 500)
+    const grid = document.getElementById('numbers-grid');
+    for(let i = 0; i <= 500; i++) {
+        let numStr = i.toString().padStart(3, '0');
+        const btn = document.createElement('div');
+        btn.className = 'num-btn';
+        btn.innerText = numStr;
+        
+        if(numerosVendidos.includes(numStr)) {
+            btn.classList.add('sold');
+        } else {
+            btn.onclick = () => alternarNumero(numStr, btn);
+        }
+        grid.appendChild(btn);
+    }
+
+    // Funções de Controle do Pix
+    function mostrarPix(chave) {
+        document.getElementById('aviso-escolha').style.display = 'none';
+        document.getElementById('area-pix').style.display = 'block';
+        document.getElementById('chave-pix').innerText = chave;
+    }
+
+    function esconderPix() {
+        document.getElementById('aviso-escolha').style.display = 'block';
+        document.getElementById('area-pix').style.display = 'none';
+    }
+
+    // Ação ao selecionar um combo
+    function selecionarCombo(combo, btnElement) {
+        comboSelecionado = combo;
+        numerosSelecionados = [];
+        
+        document.querySelectorAll('.combo-btn').forEach(b => b.classList.remove('selected'));
+        document.querySelectorAll('.num-btn:not(.sold)').forEach(b => b.classList.remove('selected'));
+        
+        btnElement.classList.add('selected');
+        
+        mostrarPix(PIX_COMBOS); // Mostra a chave dos Combos
+        
+        alert(`Você escolheu o combo de ${combo.qtd} números.\nEles serão gerados aleatoriamente pelo sistema após o pagamento e você concorre ao Pix de R$ 100!`);
+    }
+
+    // Ação ao selecionar um número na cartela
+    function alternarNumero(num, btnElement) {
+        if(comboSelecionado) {
+            comboSelecionado = null;
+            document.querySelectorAll('.combo-btn').forEach(b => b.classList.remove('selected'));
+        }
+
+        if(numerosSelecionados.includes(num)) {
+            numerosSelecionados = numerosSelecionados.filter(n => n !== num);
+            btnElement.classList.remove('selected');
+        } else {
+            numerosSelecionados.push(num);
+            btnElement.classList.add('selected');
+        }
+
+        if(numerosSelecionados.length > 0) {
+            mostrarPix(PIX_NUMEROS); // Mostra a chave dos Números
+        } else {
+            esconderPix();
+        }
+    }
+
+    // Ação de copiar chave Pix
+    function copiarPix() {
+        const chavePix = document.getElementById('chave-pix').innerText;
+        navigator.clipboard.writeText(chavePix).then(() => {
+            alert("✅ Chave Pix copiada com sucesso! Abra o app do seu banco, vá em Pix Copia e Cola e faça o pagamento.");
+        }).catch(err => {
+            alert("Erro ao copiar a chave. Por favor, selecione o texto da chave e copie manualmente.");
+        });
+    }
+
+    // Ação de enviar para o WhatsApp
+    function finalizarCompra() {
+        if(!comboSelecionado && numerosSelecionados.length === 0) {
+            alert("Por favor, escolha um combo ou selecione seus números na cartela antes de enviar o comprovante.");
+            return;
+        }
+
+        let mensagem = "";
+        
+        if(comboSelecionado) {
+            mensagem = `Olá, Gabriel! Gostaria de confirmar a compra de um combo da rifa PROJETO CAMA NOVA.\n\n` +
+                       `*Combo escolhido:* ${comboSelecionado.texto}\n` +
+                       `*Chave Pix utilizada:* ${PIX_COMBOS}\n\n` +
+                       `Estou ciente que meus números serão gerados aleatoriamente e que concorro ao Pix de R$ 100! Segue o meu comprovante:`;
+        } else {
+            let total = numerosSelecionados.length * 5;
+            mensagem = `Olá, Gabriel! Gostaria de confirmar a compra de números da rifa PROJETO CAMA NOVA.\n\n` +
+                       `*Números escolhidos:* ${numerosSelecionados.join(', ')}\n` +
+                       `*Total pago:* R$ ${total.toFixed(2)}\n` +
+                       `*Chave Pix utilizada:* ${PIX_NUMEROS}\n\n` +
+                       `Segue o meu comprovante:`;
+        }
+
+        const url = `https://wa.me/${MEU_WHATSAPP}?text=${encodeURIComponent(mensagem)}`;
+        window.open(url, '_blank');
+    }
+</script>
+</body>
+  </html>
+  
