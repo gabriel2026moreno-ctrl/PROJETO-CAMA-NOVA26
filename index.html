@@ -271,7 +271,8 @@
         
         mostrarPix(PIX_COMBOS); // Mostra a chave dos Combos
         
-        alert(`Você escolheu o combo de ${combo.qtd} números.\nEles serão gerados aleatoriamente pelo sistema após o pagamento e você concorre ao Pix de R$ 100!`);
+        // Removemos o "alert" e adicionamos o deslize automático para o pagamento
+        document.querySelector('.payment-section').scrollIntoView({ behavior: 'smooth' });
     }
 
     // Ação ao selecionar um número na cartela
@@ -291,8 +292,12 @@
 
         if(numerosSelecionados.length > 0) {
             mostrarPix(PIX_NUMEROS); // Mostra a chave dos Números
+            
+            // Desliza a tela automaticamente para a área de pagamento
+            document.querySelector('.payment-section').scrollIntoView({ behavior: 'smooth' });
         } else {
             esconderPix();
+
         }
     }
 
