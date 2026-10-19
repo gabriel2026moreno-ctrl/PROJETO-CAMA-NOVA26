@@ -1,365 +1,288 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rifa: PROJETO CAMA NOVA</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f9;
-            color: #333;
-            margin: 0;
-            padding: 0;
-        }
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            background: #fff;
-            padding: 20px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-        }
-        h1, h2, h3 {
-            text-align: center;
-            color: #2c3e50;
-        }
-        .hero-img {
-    width: 100%;
-    height: auto;
-    border-radius: 10px;
-        }
-        .story-section {
-            background: #e8f4f8;
-            padding: 15px;
-            border-radius: 8px;
-            margin: 20px 0;
-            line-height: 1.6;
-        }
-        .prizes {
-            background: #ffeaa7;
-            padding: 15px;
-            border-radius: 8px;
-            margin: 20px 0;
-            text-align: center;
-        }
-        .combos {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            justify-content: center;
-            margin-bottom: 20px;
-        }
-        .combo-btn {
-            background: #00cec9;
-            color: white;
-            border: none;
-            padding: 10px 15px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-weight: bold;
-            transition: 0.3s;
-        }
-        .combo-btn:hover, .combo-btn.selected {
-            background: #00b894;
-            transform: scale(1.05);
-        }
-        .numbers-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(50px, 1fr));
-            gap: 5px;
-            margin: 20px 0;
-            max-height: 400px;
-            overflow-y: auto;
-            padding: 10px;
-            border: 1px solid #ccc;
-        }
-        .num-btn {
-            padding: 10px 5px;
-            text-align: center;
-            background: #ecf0f1;
-            border: 1px solid #bdc3c7;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-        .num-btn:hover { background: #dfe6e9; }
-        .num-btn.selected { background: #3498db; color: white; }
-        .num-btn.sold { background: #e74c3c; color: white; cursor: not-allowed; text-decoration: line-through; }
-        
-        .payment-section {
-            background: #ecf0f1;
-            padding: 20px;
-            border-radius: 8px;
-            margin-top: 20px;
-            text-align: center;
-            border: 2px dashed #bdc3c7;
-        }
-        .copy-btn {
-            background: #f39c12;
-            color: white;
-            font-size: 16px;
-            padding: 12px;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            font-weight: bold;
-            margin-bottom: 15px;
-            width: 100%;
-        }
-        .copy-btn:hover {
-            background: #e67e22;
-        }
-        .checkout-btn {
-            display: block;
-            width: 100%;
-            background: #27ae60;
-            color: white;
-            font-size: 18px;
-            padding: 15px;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            font-weight: bold;
-        }
-        .checkout-btn:hover { background: #2ecc71; }
-        footer {
-            margin-top: 40px;
-            font-size: 0.9em;
-            color: #7f8c8d;
-            border-top: 1px solid #ccc;
-            padding-top: 20px;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#100d19">
+<title>GSMSIL — Slots</title>
+<style>
+*{box-sizing:border-box}
+body{
+  margin:0;background:#100d19;color:#fff;
+  font-family:Arial,sans-serif;
+}
+header{
+  padding:18px 16px;display:flex;
+  justify-content:space-between;align-items:center;
+  background:#1c1528;border-bottom:1px solid #45304f;
+}
+.logo{font-size:25px;font-weight:900;color:#ffca55}
+.tag{font-size:10px;color:#c7b9d4;letter-spacing:2px}
+.balance{
+  background:#2c2137;padding:10px 12px;
+  border-radius:12px;font-size:12px;
+}
+main{max-width:620px;margin:auto;padding:16px}
+.banner{
+  padding:22px 18px;border-radius:18px;
+  background:linear-gradient(130deg,#47205f,#9b3b57,#e69a35);
+}
+.banner h1{margin:0 0 8px;font-size:28px}
+.banner p{font-size:13px;line-height:1.6}
+.notice{font-size:11px;color:#e3d4eb}
+h2{font-size:18px;margin-top:25px}
+.games{
+  display:grid;grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:12px;
+}
+.game{
+  border:1px solid #49344f;border-radius:15px;
+  overflow:hidden;background:#21182b;
+}
+.art{
+  min-height:115px;display:flex;align-items:center;
+  justify-content:center;font-size:55px;
+  background:radial-gradient(circle,#754c7d,#24162e 72%);
+}
+.gameInfo{padding:12px}
+.gameInfo strong{font-size:14px}
+.gameInfo p{font-size:11px;color:#c7b9d4}
+button,select{
+  border:0;border-radius:9px;padding:11px;
+  font-weight:bold;cursor:pointer;
+}
+.play{
+  width:100%;background:#ffca55;color:#24162e;
+}
+button:disabled{opacity:.6}
+.panel{
+  margin-top:20px;padding:17px;border-radius:17px;
+  background:#21182b;border:1px solid #49344f;
+}
+.machine{
+  display:flex;justify-content:center;gap:8px;
+  margin:20px 0;
+}
+.reel{
+  width:30%;height:85px;display:grid;place-items:center;
+  font-size:39px;border-radius:12px;
+  background:#f9e7c0;color:#24162e;
+  border:3px solid #dba94d;
+}
+.spin{width:100%;background:#ffca55;color:#24162e}
+.controls{display:flex;align-items:center;gap:10px;margin:12px 0}
+select{background:#392743;color:white;flex:1}
+.message{font-size:13px;line-height:1.5;min-height:20px}
+footer{text-align:center;color:#a999b7;font-size:11px;padding:24px}
+</style>
 </head>
 <body>
+<header>
+  <div>
+    <div class="logo">GSMSIL</div>
+    <div class="tag">SLOTS DE DEMONSTRAÇÃO</div>
+  </div>
+  <div class="balance">
+    CRÉDITOS FICTÍCIOS<br>
+    <strong id="balance">1.000</strong>
+  </div>
+</header>
 
-<div class="container">
-    <h1>Rifa: PROJETO CAMA NOVA 🏠🚲</h1>
-    
-    <!-- Para colocar a foto real da bicicleta, troque o link dentro do src="" abaixo -->
-    <img src="imagem1.png" alt="Bicicleta do Prêmio" class="hero-img">
+<main>
+  <section class="banner">
+    <h1>Bem-vindo ao GSMSIL</h1>
+    <p>Explore jogos demonstrativos, teste os giros
+    e conheça a experiência de um cassino virtual.</p>
+    <div class="notice">
+      Ambiente de teste · Sem depósitos ou saques
+    </div>
+  </section>
 
-    <div class="story-section">
-        <h3>Olá, pessoal!</h3>
-        <p>Quem acompanha a minha correria, seja nos cortes do dia a dia ou nas minhas correrias, sabe o quanto eu valorizo o meu trabalho duro. Estou entrando em uma nova fase da minha vida e organizando o meu próprio espaço, para conseguir um descanso adequado. Para comprar meus móveis e eletrodomésticos básicos, resolvi fazer essa rifa.</p>
-        
-        <h3>O Motivo da Rifa: Construindo o Meu Descanso</h3>
-        <p>Estou há mais de 3 anos tentando construir meu conforto. Depois de um dia inteiro em pé na correria da barbearia, cortando cabelo e dando o meu melhor para os clientes, ou em outros bicos, a realidade ao chegar em casa é dura. Há mais de 3 anos venho tentando conquistar o mínimo de conforto e independência.</p>
-        <p>Durante todo esse período, o dinheiro que ganho com os meus trabalhos só está indo para pagar as despesas básicas da casa e alimentação, o que torna quase impossível juntar o valor necessário para comprar uma cama ou os móveis essenciais. Por causa disso, vivo a dificuldade de dormir de rede ou depender de terceiros para conseguir descansar e recuperar as energias.</p>
-        <p>Todo trabalhador merece um lugar próprio e confortável para repousar após uma jornada pesada. É por isso que criei esta rifa da bicicleta: para transformar o suor do meu trabalho em conquista real e, finalmente, montar o meu próprio conforto. Conto com a sua força, seja comprando um número ou compartilhando com quem pode ajudar. Vamos juntos nessa!</p>
+  <h2>🎰 Jogos disponíveis</h2>
+  <section class="games">
+    <article class="game">
+      <div class="art">🐂</div>
+      <div class="gameInfo">
+        <strong>Fortuna do Touro</strong>
+        <p>Slot temático demonstrativo</p>
+        <button class="play" onclick="openGame('Touro')">
+          JOGAR
+        </button>
+      </div>
+    </article>
+
+    <article class="game">
+      <div class="art">🐯</div>
+      <div class="gameInfo">
+        <strong>Tigre Dourado</strong>
+        <p>Slot temático demonstrativo</p>
+        <button class="play" onclick="openGame('Tigre')">
+          JOGAR
+        </button>
+      </div>
+    </article>
+
+    <article class="game">
+      <div class="art">🐉</div>
+      <div class="gameInfo">
+        <strong>Dragão da Sorte</strong>
+        <p>Slot temático demonstrativo</p>
+        <button class="play" onclick="openGame('Dragão')">
+          JOGAR
+        </button>
+      </div>
+    </article>
+
+    <article class="game">
+      <div class="art">💎</div>
+      <div class="gameInfo">
+        <strong>Minas de Cristal</strong>
+        <p>Slot temático demonstrativo</p>
+        <button class="play" onclick="openGame('Cristal')">
+          JOGAR
+        </button>
+      </div>
+    </article>
+  </section>
+
+  <section class="panel" id="machine">
+    <h2 id="gameTitle">🎰 Escolha um jogo</h2>
+    <p class="notice">Os resultados abaixo são aleatórios
+    e não representam um jogo comercial certificado.</p>
+
+    <div class="machine">
+      <div class="reel" id="r1">🍀</div>
+      <div class="reel" id="r2">⭐</div>
+      <div class="reel" id="r3">💎</div>
     </div>
 
-    <div class="prizes">
-        <h2>Premiações</h2>
-        <p><strong>1º Prêmio:</strong> Bicicleta Top (Sorteio pela Loteria Federal)</p>
-        <p><strong>2º Prêmio:</strong> R$ 100,00 no Pix (Exclusivo para quem comprar Combos)</p>
-        <p><em>Valor do número avulso: R$ 5,00</em></p>
+    <div class="controls">
+      <label for="bet">Créditos por giro:</label>
+      <select id="bet">
+        <option value="10">10</option>
+        <option value="25">25</option>
+        <option value="50">50</option>
+      </select>
     </div>
 
-    <h3>Escolha seus Combos (Concorre a R$ 100 extra)</h3>
-    <div class="combos" id="combos-container">
-        <!-- Combos gerados via JS -->
-    </div>
+    <button class="spin" id="spin" onclick="spin()">
+      GIRAR
+    </button>
+    <p class="message" id="message" aria-live="polite">
+      Selecione um jogo para começar.
+    </p>
+  </section>
+</main>
 
-    <h3>Ou escolha seus números avulsos (000 a 500)</h3>
-    <div class="numbers-grid" id="numbers-grid">
-        <!-- Números gerados via JS -->
-    </div>
-
-    <div class="payment-section">
-        <h3>💳 Faça o Pagamento</h3>
-        
-        <!-- Mensagem antes de escolher -->
-        <p id="aviso-escolha" style="color: #e74c3c; font-weight: bold;">Selecione um número ou um combo para ver a chave Pix de pagamento.</p>
-        
-        <!-- Área do Pix (Fica escondida até a pessoa escolher algo) -->
-        <div id="area-pix" style="display: none;">
-            <p><strong>Chave Pix:</strong> <span id="chave-pix"></span></p>
-            <p><strong>Titular:</strong> Gabriel Da Silva Moreno</p>
-            <button class="copy-btn" onclick="copiarPix()">📋 Copiar Chave Pix (Copia e Cola)</button>
-        </div>
-
-        <p style="font-size: 14px; color: #7f8c8d; margin-top: 15px;">Após realizar o pagamento, clique no botão abaixo para enviar o comprovante no WhatsApp.</p>
-        <button class="checkout-btn" onclick="finalizarCompra()">📲 Enviar Comprovante no WhatsApp</button>
-    </div>
-
-    <footer>
-        <h4>Termos e Condições - Regras da Rifa</h4>
-        <p>A Rifa PROJETO CAMA NOVA é composta por 500 números (de 000 a 500) ao valor de R$ 5,00 cada.</p>
-        <p>O sorteio só será realizado após a venda e baixa de 100% dos números. O resultado oficial será baseado no sorteio da Loteria Federal, garantindo total transparência.</p>
-        <p><strong>Exemplo de sorteio:</strong> Se o 1º prêmio da loteria Federal for o número 12345, o ganhador da bicicleta será o número 345. Se o 2º prêmio for 12346, o ganhador dos R$ 100,00 será o 346.</p>
-        <p>A premiação do ganhador só é considerada válida e realizada após a venda, confirmação no WhatsApp (com envio de comprovante) e a mensagem automática do número escolhido.</p>
-        <p><strong>No dia do sorteio:</strong> Galera, com a cartela 100% fechada! No dia do resultado, avisarei com 1 dia de antecedência. O sorteio será realizado com base na Loteria Federal, boa sorte a todos!</p>
-        <p><strong>Entrega:</strong> Caso o comprador sorteado for de outro estado, ou outra localização sem ser dentro das redondezas onde moro (PARNAMIRIM/RN), o envio da bicicleta dependerá da localização, podendo ser entregue pessoalmente.</p>
-    </footer>
-</div>
+<footer>
+  GSMSIL © 2026 · Protótipo educativo<br>
+  Créditos virtuais sem valor monetário.
+</footer>
 
 <script>
-    // Configurações Pessoais
-    const MEU_WHATSAPP = "5584996742740"; 
-    
-    // Suas chaves Pix separadas:
-    const PIX_NUMEROS = "4f18bafc-72b2-4c37-a5b5-d893573d2177";
-    const PIX_COMBOS = "0578187f-b286-40b9-8bc3-96eeee459a1d";
-    
-    // COMO BLOQUEAR NÚMEROS VENDIDOS:
-    // Adicione os números já pagos dentro dos colchetes abaixo, separados por vírgula e com aspas. 
-    // Exemplo: const numerosVendidos = ["005", "012", "499"];
-    const numerosVendidos = []; 
+let credits = 1000;
+let currentGame = "";
+let busy = false;
 
-    let numerosSelecionados = [];
-    let comboSelecionado = null;
+const symbols = ["🍀","⭐","💎","🔔","👑","🪙"];
 
-    const combos = [
-        { id: 1, qtd: 2, valor: 7.50, texto: "2 números - R$ 7,50" },
-        { id: 2, qtd: 3, valor: 12.00, texto: "3 números - R$ 12,00" },
-        { id: 3, qtd: 4, valor: 16.00, texto: "4 números - R$ 16,00" },
-        { id: 4, qtd: 5, valor: 20.00, texto: "5 números - R$ 20,00" },
-        { id: 5, qtd: 6, valor: 24.00, texto: "6 números - R$ 24,00" },
-        { id: 6, qtd: 7, valor: 28.00, texto: "7 números - R$ 28,00" },
-        { id: 7, qtd: 8, valor: 32.00, texto: "8 números - R$ 32,00" },
-        { id: 8, qtd: 9, valor: 36.00, texto: "9 números - R$ 36,00" },
-        { id: 9, qtd: 10, valor: 40.00, texto: "10 números - R$ 40,00" }
-    ];
+function updateBalance(){
+  document.getElementById("balance").textContent =
+    credits.toLocaleString("pt-BR");
+}
 
-    // Gerar Combos na Tela
-    const comboContainer = document.getElementById('combos-container');
-    combos.forEach(c => {
-        const btn = document.createElement('button');
-        btn.className = 'combo-btn';
-        btn.innerText = c.texto;
-        btn.onclick = () => selecionarCombo(c, btn);
-        comboContainer.appendChild(btn);
+function openGame(name){
+  currentGame = name;
+  document.getElementById("gameTitle").textContent =
+    "🎰 " + name;
+  document.getElementById("message").textContent =
+    "Jogo selecionado: " + name +
+    ". Use créditos fictícios para testar.";
+  document.getElementById("machine").scrollIntoView({
+    behavior:"smooth",block:"center"
+  });
+}
+
+function spin(){
+  if(busy) return;
+
+  if(!currentGame){
+    document.getElementById("message").textContent =
+      "Primeiro escolha um jogo acima.";
+    return;
+  }
+
+  const bet = Number(document.getElementById("bet").value);
+
+  if(credits < bet){
+    document.getElementById("message").textContent =
+      "Créditos insuficientes para este teste.";
+    return;
+  }
+
+  busy = true;
+  credits -= bet;
+  updateBalance();
+
+  const button = document.getElementById("spin");
+  button.disabled = true;
+  document.getElementById("message").textContent =
+    "Girando os rolos...";
+
+  const reels = [
+    document.getElementById("r1"),
+    document.getElementById("r2"),
+    document.getElementById("r3")
+  ];
+
+  let count = 0;
+  const animation = setInterval(() => {
+    reels.forEach(reel => {
+      reel.textContent =
+        symbols[Math.floor(Math.random()*symbols.length)];
     });
+    count++;
 
-    // Gerar Números na Tela (000 a 500)
-    const grid = document.getElementById('numbers-grid');
-    for(let i = 0; i <= 500; i++) {
-        let numStr = i.toString().padStart(3, '0');
-        const btn = document.createElement('div');
-        btn.className = 'num-btn';
-        btn.innerText = numStr;
-        
-        if(numerosVendidos.includes(numStr)) {
-            btn.classList.add('sold');
-        } else {
-            btn.onclick = () => alternarNumero(numStr, btn);
-        }
-        grid.appendChild(btn);
+    if(count >= 12){
+      clearInterval(animation);
+      finishSpin(reels,bet);
+      busy = false;
+      button.disabled = false;
     }
+  },100);
+}
 
-    // Funções de Controle do Pix
-    function mostrarPix(chave) {
-        document.getElementById('aviso-escolha').style.display = 'none';
-        document.getElementById('area-pix').style.display = 'block';
-        document.getElementById('chave-pix').innerText = chave;
-    }
+function finishSpin(reels,bet){
+  // Simulação educativa, sem probabilidades certificadas.
+  const result = reels.map(() =>
+    symbols[Math.floor(Math.random()*symbols.length)]
+  );
 
-    function esconderPix() {
-        document.getElementById('aviso-escolha').style.display = 'block';
-        document.getElementById('area-pix').style.display = 'none';
-    }
+  reels.forEach((reel,i) => reel.textContent = result[i]);
 
-    // Ação ao selecionar um combo
-    function selecionarCombo(combo, btnElement) {
-        comboSelecionado = combo;
-        numerosSelecionados = [];
-        
-        document.querySelectorAll('.combo-btn').forEach(b => b.classList.remove('selected'));
-        document.querySelectorAll('.num-btn:not(.sold)').forEach(b => b.classList.remove('selected'));
-        
-        btnElement.classList.add('selected');
-        
-        mostrarPix(PIX_COMBOS); // Mostra a chave dos Combos
-        
-        // Removemos o "alert" e adicionamos o deslize automático para o pagamento
-        document.querySelector('.payment-section').scrollIntoView({ behavior: 'smooth' });
-    }
+  let prize = 0;
 
-    //     // Ação ao selecionar um número na cartela
-    function alternarNumero(num, btnElement) {
-        if(comboSelecionado) {
-            comboSelecionado = null;
-            document.querySelectorAll('.combo-btn').forEach(b => b.classList.remove('selected'));
-        }
+  if(result[0] === result[1] &&
+     result[1] === result[2]){
+    prize = bet * 5;
+  } else if(
+    result[0] === result[1] ||
+    result[1] === result[2] ||
+    result[0] === result[2]
+  ){
+    prize = bet * 2;
+  }
 
-        if(numerosSelecionados.includes(num)) {
-            numerosSelecionados = numerosSelecionados.filter(n => n !== num);
-            btnElement.classList.remove('selected');
-        } else {
-            numerosSelecionados.push(num);
-            btnElement.classList.add('selected');
-        }
+  credits += prize;
+  updateBalance();
 
-        if(numerosSelecionados.length > 0) {
-            mostrarPix(PIX_NUMEROS); // Mostra a chave dos Números, mas sem puxar a tela para baixo
-        } else {
-            esconderPix();
-        }
-    }
-
-    // Ação de copiar chave Pix
-    function copiarPix() {
-        const chavePix = document.getElementById('chave-pix').innerText;
-        navigator.clipboard.writeText(chavePix).then(() => {
-            alert("✅ Chave Pix copiada com sucesso! Abra o app do seu banco, vá em Pix Copia e Cola e faça o pagamento.");
-        }).catch(err => {
-            alert("Erro ao copiar a chave. Por favor, selecione o texto da chave e copie manualmente.");
-        });
-    }
-
-        // Ação de enviar para o WhatsApp
-    function finalizarCompra() {
-        if(!comboSelecionado && numerosSelecionados.length === 0) {
-            alert("Por favor, escolha um combo ou selecione seus números na cartela antes de enviar o comprovante.");
-            return;
-        }
-
-        let mensagem = "";
-        
-        if(comboSelecionado) {
-            // Lógica para gerar números aleatórios que ainda não foram vendidos
-            let numerosDisponiveis = [];
-            for(let i = 0; i <= 500; i++) {
-                let numStr = i.toString().padStart(3, '0');
-                if(!numerosVendidos.includes(numStr)) {
-                    numerosDisponiveis.push(numStr);
-                }
-            }
-
-            if(numerosDisponiveis.length < comboSelecionado.qtd) {
-                alert("Desculpe, não há números disponíveis suficientes para este combo.");
-                return;
-            }
-
-            let numerosSorteados = [];
-            for(let i = 0; i < comboSelecionado.qtd; i++) {
-                let randomIndex = Math.floor(Math.random() * numerosDisponiveis.length);
-                numerosSorteados.push(numerosDisponiveis[randomIndex]);
-                numerosDisponiveis.splice(randomIndex, 1); // Remove para não sortear o mesmo número duas vezes
-            }
-
-            // Organiza os números do menor para o maior para ficar mais bonito
-            numerosSorteados.sort();
-
-            mensagem = `Olá, Gabriel! Gostaria de confirmar a compra de um combo da rifa PROJETO CAMA NOVA.\n\n` +
-                       `*Combo escolhido:* ${comboSelecionado.texto}\n` +
-                       `*Números Aleatórios Gerados:* ${numerosSorteados.join(', ')}\n` +
-                       `*Chave Pix utilizada:* ${PIX_COMBOS}\n\n` +
-                       `Concorro à bicicleta e ao Pix de R$ 100! Segue o meu comprovante:`;
-        } else {
-            let total = numerosSelecionados.length * 5;
-            mensagem = `Olá, Gabriel! Gostaria de confirmar a compra de números da rifa PROJETO CAMA NOVA.\n\n` +
-                       `*Números escolhidos:* ${numerosSelecionados.join(', ')}\n` +
-                       `*Total pago:* R$ ${total.toFixed(2)}\n` +
-                       `*Chave Pix utilizada:* ${PIX_NUMEROS}\n\n` +
-                       `Segue o meu comprovante:`;
-        }
-
-        const url = `https://wa.me/${MEU_WHATSAPP}?text=${encodeURIComponent(mensagem)}`;
-        window.open(url, '_blank');
-    
-    }
+  document.getElementById("message").textContent =
+    prize > 0
+      ? "Combinação simulada! Você recebeu " +
+        prize + " créditos fictícios."
+      : "Nenhuma combinação nesta rodada. Teste novamente.";
+}
 </script>
 </body>
-  </html>
-  
+</html>
